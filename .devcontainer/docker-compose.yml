@@ -1,0 +1,22 @@
+version: "3.2"
+services:
+  # The API service
+  api:
+    user: ${USER}
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - USERNAME=${USER}
+        - PASSWD=${PASSWD}
+    container_name: codepraise-api
+    ports:
+      - 9090:9090
+      - 9292:9292
+    volumes:
+      - ..:/home/${USER}/workspace:cached
+      - ${HOME}${USERPROFILE}/.ssh:/home/${USER}/.ssh
+      - ${HOME}${USERPROFILE}/.gitconfig:/home/${USER}/.gitconfig
+      - ${HOME}${USERPROFILE}/.gnupg:/home/${USER}/.gnupg
+    working_dir: /home/${USER}/workspace/projects
+    command: sleep infinity
