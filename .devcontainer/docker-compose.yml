@@ -18,21 +18,34 @@ services:
       - ${HOME}${USERPROFILE}/.gitconfig:/home/${USER}/.gitconfig
       - ${HOME}${USERPROFILE}/.gnupg:/home/${USER}/.gnupg
     links:
-      - redis_db
-      - mongo_db
+      - redis-db
+      - mongo-db
+      - postgres-db
     working_dir: /home/${USER}/workspace/projects
     command: sleep infinity
-  redis_db:
+
+  redis-db:
     image: redis
     container_name: codepraise-redis
     volumes:
       - ../db-data/redis:/data:delegated
     ports:
       - 6379:6379
-  mongo_db:
+
+  mongo-db:
     image: mongo
     container_name: codepraise-mongo
     volumes:
       - ../db-data/mongo:/data/db:delegated
     ports:
       - 27017:27017
+
+  postgres-db:
+    image: postgres
+    container_name: codepraise-postgres
+    volumes:
+      - ../db-data/postgres:/var/lib/postgresql/data:delegated
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=postgres_passwd
