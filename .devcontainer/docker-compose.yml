@@ -1,7 +1,6 @@
 version: "3.2"
 services:
-  # The API service
-  api:
+  host:
     user: ${USER}
     build:
       context: .
@@ -9,7 +8,7 @@ services:
       args:
         - USERNAME=${USER}
         - PASSWD=${PASSWD}
-    container_name: codepraise-api
+    container_name: codepraise-host
     ports:
       - 9090:9090
       - 9292:9292
@@ -18,5 +17,14 @@ services:
       - ${HOME}${USERPROFILE}/.ssh:/home/${USER}/.ssh
       - ${HOME}${USERPROFILE}/.gitconfig:/home/${USER}/.gitconfig
       - ${HOME}${USERPROFILE}/.gnupg:/home/${USER}/.gnupg
+    links:
+      - redis_db
     working_dir: /home/${USER}/workspace/projects
     command: sleep infinity
+  redis_db:
+    image: redis
+    container_name: codepraise-redis
+    volumes:
+      - ../db-data/redis:/data:delegated
+    ports:
+      - 6379:6379
