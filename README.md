@@ -17,6 +17,7 @@ script/start-devcontainer.sh
 After logging into the DevContainer, the working directory will be `~/workspace/projects`, this is the place where we can clone the `codepraise-api` and `codepraise` repo.
 
 ### Remove the DevContainer
+Run the `remove-devcontainer.sh` to remove the DevContainer.
 ```
-docker-compose down
+script/remove-devcontainer.sh
 ```
