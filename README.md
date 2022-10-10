@@ -56,8 +56,33 @@ script/remove-devcontainer.sh
 All the services will be removed, it will create a whole new DevContainer environment if you run `start-devcontainer.sh` after removing the DevContainer. Therefore, only remove the DevContainer if you want to reset the environment, or if there are some changes to the setting of DevContainer in `.devcontainer/docker-compose.yml` or `.devcontainer/Dockerfile`.
 
 ## Data Storage
+Some folders on our local machine are mapped to containers for caching data storage, so that the data won't be lost even if we remove the DevContainer.
+
+### Project
+The `projects` folder on our local machine is mapped to the `~/workspace/projects/` in the `host` container. So we can edit them on our local machine directly, and it will synchronize to the `host` container automatically.
+```
+-- codepraise-devcontainer
+   |-- projects
+   |   |-- codepraise
+   |   |   |-- ...
+   |   |-- codepraise-api
+   |       |-- ...
+   |-- ...
+```
+
 ### Database
-All the database data will be stored in the `db-data` folder on our local machine so that the data won't be lost even if we remove the DevContainer.
+All the database (redis, mongo, postgres) data folders will be mapped in the `db-data` folder on our local machine.
+```
+-- codepraise-devcontainer
+   |-- db-data
+   |   |-- mongo
+   |   |   |-- ...
+   |   |-- postgres
+   |       |-- ...
+   |   |-- redis
+   |       |-- ...
+   |-- ...
+```
 
 ### Bundle Packages
 The bundle package data will only be stored in the `host` container, since it will lower the running speed of the program in the `host` container if we want to read/write them from the local machine. 
