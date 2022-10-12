@@ -1,4 +1,4 @@
 #!/bin/bash
-# Remove DevContainer
+# Stop the DevContainer
 
 docker-compose stop
