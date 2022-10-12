@@ -1,4 +1,4 @@
 #!/bin/bash
-# Remove DevContainer
+# Remove the DevContainer
 
 docker-compose down --remove-orphans
