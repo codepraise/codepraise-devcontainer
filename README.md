@@ -6,7 +6,7 @@ Clone this repo to your working machine which has already installed docker.
 
 ## Usage
 ### Setup the ENV variable
-Change the `.env-example` file to `.env`, then set up the value of `PASSWD` as your user's password. The password can be used for like `sudo` command.
+Change the `.env-example` file to `.env`.
 
 ### Accessorize the DevContainer Shell
 You can customize the shell environment by adding some commands in `.devcontainer/profile.sh`, like `alias`. 
