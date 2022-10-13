@@ -16,5 +16,7 @@ ARG USER_GID=${USER_UID}
 ARG PASSWD
 
 RUN groupadd --gid ${USER_GID} ${USERNAME} \
-&& useradd -s /bin/bash --uid ${USER_UID} --gid ${USER_GID} -m ${USERNAME} --password $(echo ${PASSWD} | openssl passwd -1 -stdin) \
-&& usermod -aG sudo ${USERNAME}
+&& useradd -s /bin/bash --uid ${USER_UID} --gid ${USER_GID} -m ${USERNAME} \
+&& usermod -aG sudo ${USERNAME} \
+&& echo "${USERNAME} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/add_sudoers \
+&& chmod 0440 /etc/sudoers.d/add_sudoers
