@@ -63,6 +63,7 @@ script/remove-devcontainer.sh
 All the services will be removed, it will create a whole new DevContainer environment if you run `start-devcontainer.sh` after removing the DevContainer. Therefore, only remove the DevContainer if you want to reset the environment, or if there are some changes to the setting of DevContainer in `.devcontainer/docker-compose.yml` or `.devcontainer/Dockerfile`.
 
 > **Note**
+> 
 > If it fails to remove or stop the container, try to restart docker then remove or stop it again.
 
 ## Data Storage
