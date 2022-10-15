@@ -4,9 +4,9 @@
 project_root=$(dirname "${BASH_SOURCE[0]}")/..
 if [ -e "${project_root}"/.env ]; then
   source "${project_root}"/.env
+else
+  echo "ERROR: ${project_root}/.env not found or not readable"
+  exit 1
 fi
 
-export COMPOSE_FILE=${COMPOSE_FILE:-"${project_root}/.devcontainer/docker-compose.yml"}
-export COMPOSE_PROJECT_NAME=${COMPOSE_PROJECT_NAME:-"codepraise"}
-
-docker-compose up -d --build && docker-compose exec host /bin/bash -l
+docker-compose up -d --build &> /dev/null && docker-compose exec host /bin/bash -l
