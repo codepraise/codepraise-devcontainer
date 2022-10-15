@@ -7,15 +7,16 @@ services:
       dockerfile: Dockerfile
       args:
         - USERNAME=${USER}
+        - IMAGE=${IMAGE}
     container_name: codepraise-host
     ports:
       - 9090:9090
       - 9292:9292
     volumes:
       - ..:/home/${USER}/workspace:cached
-      - ${HOME}${USERPROFILE}/.ssh:/home/${USER}/.ssh
-      - ${HOME}${USERPROFILE}/.gitconfig:/home/${USER}/.gitconfig
-      - ${HOME}${USERPROFILE}/.gnupg:/home/${USER}/.gnupg
+      - ${HOME}/.ssh:/home/${USER}/.ssh
+      - ${HOME}/.gitconfig:/home/${USER}/.gitconfig
+      - ${HOME}/.gnupg:/home/${USER}/.gnupg
     links:
       - redis-db
       - mongo-db
