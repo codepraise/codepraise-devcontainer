@@ -9,4 +9,4 @@ else
   exit 1
 fi
 
-docker-compose up -d --build &> /dev/null && docker-compose exec host /bin/bash -l
+docker-compose up -d --build 1> /dev/null && docker-compose exec host /bin/bash -l

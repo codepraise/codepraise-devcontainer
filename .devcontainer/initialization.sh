@@ -21,7 +21,7 @@ for url in "${project_github_urls[@]}"; do
     # Bundle install
     echo -n "Bundle installing for '${repo_name}'... " \
     && cd "${project_root}/projects/${repo_name}" \
-    && bundle install &> /dev/null \
-    && cd - &> /dev/null \
+    && bundle install 1> /dev/null \
+    && cd - 1> /dev/null \
     && echo "done."
 done
