@@ -16,9 +16,13 @@ Run the `start-devcontainer.sh` to start the DevContainer and login to the shell
 ```
 script/start-devcontainer.sh
 ```
+It will automatically clone all the projects we specified from `project_github_urls` in `config.yml`. Also execute `bundle install` for all projects.
+
+#### Get Another Shell in the DevContainer
 You can get another shell in the DevContainer by opening a new terminal then run the `start-devcontainer.sh`
 
-After logging into the DevContainer shell, the working directory will be `~/workspace/projects`, this is the place where we can clone the project we are going to develop, such as `codepraise-api` and `codepraise` repo.
+#### Working Directory
+After logging into the DevContainer shell, the working directory will be `~/workspace/projects`, this is the place where we cloned the project.
 ```
 -- workspace
    |-- projects
@@ -30,6 +34,7 @@ After logging into the DevContainer shell, the working directory will be `~/work
    |-- ...   
 ```
 
+#### Architecture of the DevContainer
 The DevContainer will start all the services we need as containers. 
 * `host` is the container with the development environment setup already.
 * `mongo`, `postgres`, and `redis` are containers with databases setup.
@@ -56,6 +61,10 @@ script/remove-devcontainer.sh
 ```
 
 All the services will be removed, it will create a whole new DevContainer environment if you run `start-devcontainer.sh` after removing the DevContainer. Therefore, only remove the DevContainer if you want to reset the environment, or if there are some changes to the setting of DevContainer in `.devcontainer/docker-compose.yml` or `.devcontainer/Dockerfile`.
+
+> **Note**
+> 
+> If it fails to remove or stop the container, try to restart docker then remove or stop it again.
 
 ## Data Storage
 Some folders on our local machine are mapped to containers for caching data storage, so that the data won't be lost even if we remove the DevContainer.
@@ -86,7 +95,6 @@ All the database (redis, mongo, postgres) data folders will be mapped in the `db
    |-- ...
 ```
 
-### Bundle Packages
-The bundle package data will only be stored in the `host` container, since it will lower the running speed of the program in the `host` container if we want to read/write them from the local machine. 
-Hence, it requires the `bundle install` to install packages if you start the DevContainer for the first time or start a new DevContainer after removing the previous DevContainer.
-
+### Gem Packages
+The gem package data will only be stored in the `host` container, since it will lower the running speed of the program in the `host` container if we want to read/write them from the local machine. 
+Therefore, everytime you run the `start-devcontainer.sh` to start the DevContainer and login to the shell, it will execute `bundle install` command to install gem packages automatically.
