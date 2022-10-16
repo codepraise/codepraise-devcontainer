@@ -14,6 +14,7 @@ RUN apt update \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/*
 
+# Add User
 ARG USERNAME
 ARG USER_UID=1000
 ARG USER_GID=${USER_UID}
@@ -27,9 +28,14 @@ RUN groupadd --gid ${USER_GID} ${USERNAME} \
 
 ARG HOME=/home/${USERNAME}
 RUN echo "source ${HOME}/workspace/.devcontainer/profile.sh" >> '/etc/zsh/zprofile' \
-    && echo "source ${HOME}/workspace/.devcontainer/initialization.sh" >> '/etc/zsh/zlogin'
+    && echo "source ${HOME}/.zshrc" >> '/etc/zsh/zshrc' \
+    && echo "source ${HOME}/workspace/.devcontainer/project_initialization.sh" >> '/etc/zsh/zlogin'
 
 # Install Oh My Zsh
 USER ${USERNAME}
 RUN touch ~/.zshrc
 RUN sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended
+
+COPY ./zsh_initialization.sh ./zsh_config.yml /tmp/
+RUN /tmp/zsh_initialization.sh \
+    && sudo rm /tmp/zsh_initialization.sh /tmp/zsh_config.yml
