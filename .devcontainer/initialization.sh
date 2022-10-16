@@ -1,13 +1,14 @@
-#!/bin/bash
+#!/bin/zsh
 # Initialize the project in DevContainer
 
-echo "*** project initialized from ${BASH_SOURCE[0]} via ${BASH_SOURCE[1]} ***"
+echo "*** project initialize ***"
+
+project_root="${HOME}/workspace"
 
 # Get project github urls from config.yml
-config_file="${HOME}/workspace/.devcontainer/config.yml"
-IFS=' ' readarray -t project_github_urls <<< $(yq '.project_github_urls.[]' ${config_file})
+config_file="${project_root}/.devcontainer/config.yml"
+IFS=$'\n' project_github_urls=($(yq '.project_github_urls.[]' ${config_file}))
 
-project_root=$(dirname "${BASH_SOURCE[0]}")/..
 for url in "${project_github_urls[@]}"; do
     repo_name=$(echo "${url}" | sed -E 's/.*\/(.*)/\1/')
 
