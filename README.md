@@ -5,11 +5,12 @@ Environment setup is always a nightmare for a new member who has just onboard to
 Clone this repo to your working machine which has already installed docker.
 
 ## Usage
-### Setup the ENV variable
-Change the `.env-example` file to `.env`.
-
 ### Accessorize the DevContainer Shell
-You can customize the shell environment by adding some commands in `.devcontainer/profile.sh`, like `alias`. 
+You can customize the shell environment by adding some commands in `.devcontainer/profile.sh`, like `alias`.
+
+#### Oh-My-Zsh Decoration
+We adopt `zsh` as the default shell, and support `Oh-My-Zsh`. You will have to copy `.devcontainer/zsh_config_example.yml` and then change the file name to `zsh_config.yml` for the first time you just clone this repo. 
+`zsh_config.yml` will not be added to version control, therefore, every developer can customize its shell by specifying the `theme` and `plugins` in this file.
 
 ### Start the DevContainer
 Run the `start-devcontainer.sh` to start the DevContainer and login to the shell.
