@@ -23,7 +23,9 @@ content='export ZSH="$HOME/.oh-my-zsh"'${NEWLINE}
 
 # Set zsh theme
 content+='ZSH_THEME="'${zsh_theme}'"'${NEWLINE}
-eval ${theme_install_command}
+if [ ${theme_install_command} != 'null' ]; then
+    eval ${theme_install_command}
+fi
 content+=${NEWLINE}"#Customize the theme"${NEWLINE}
 for command in "${theme_other_commands[@]}"; do
     content+=${command}${NEWLINE}
