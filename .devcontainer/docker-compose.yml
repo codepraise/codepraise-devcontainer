@@ -9,6 +9,10 @@ services:
         - USERNAME=${USER}
         - IMAGE=${IMAGE}
     container_name: ${COMPOSE_PROJECT_NAME}-host
+    environment:
+      - SHELL=${SHELL}
+      - TZ=${TZ}
+      - LANG=${LANG}
     ports:
       - 9090:9090
       - 9292:9292

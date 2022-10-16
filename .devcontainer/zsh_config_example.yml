@@ -12,5 +12,3 @@ oh_my_zsh:
         plugin_install_command: 'git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions'
       - plugin: zsh-syntax-highlighting
         plugin_install_command: 'git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting'
-    language: en_US.UTF-8
-    timezone: Asia/Taipei
