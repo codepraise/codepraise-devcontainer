@@ -8,7 +8,7 @@ services:
       args:
         - USERNAME=${USER}
         - IMAGE=${IMAGE}
-    container_name: codepraise-host
+    container_name: ${COMPOSE_PROJECT_NAME}-host
     ports:
       - 9090:9090
       - 9292:9292
@@ -26,7 +26,7 @@ services:
 
   redis-db:
     image: redis
-    container_name: codepraise-redis
+    container_name: ${COMPOSE_PROJECT_NAME}-redis
     volumes:
       - ../db-data/redis:/data:delegated
     ports:
@@ -34,7 +34,7 @@ services:
 
   mongo-db:
     image: mongo
-    container_name: codepraise-mongo
+    container_name: ${COMPOSE_PROJECT_NAME}-mongo
     volumes:
       - ../db-data/mongo:/data/db:delegated
     ports:
@@ -42,7 +42,7 @@ services:
 
   postgres-db:
     image: postgres
-    container_name: codepraise-postgres
+    container_name: ${COMPOSE_PROJECT_NAME}-postgres
     volumes:
       - ../db-data/postgres:/var/lib/postgresql/data:delegated
       - ./postgres-init.sql:/docker-entrypoint-initdb.d/postgres-init.sql
