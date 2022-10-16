@@ -6,7 +6,7 @@ echo "*** project initialize ***"
 project_root="${HOME}/workspace"
 
 # Get project github urls from config.yml
-config_file="${project_root}/.devcontainer/config.yml"
+config_file="${project_root}/.devcontainer/project_config.yml"
 IFS=$'\n' project_github_urls=($(yq '.project_github_urls.[]' ${config_file}))
 
 for url in "${project_github_urls[@]}"; do
