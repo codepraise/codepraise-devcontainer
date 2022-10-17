@@ -48,15 +48,5 @@ content+='plugins=('${plugin_content}')'${NEWLINE}
 
 content+=${NEWLINE}'source $ZSH/oh-my-zsh.sh'${NEWLINE}
 
-# Set language
-language=($(yq '.oh_my_zsh.zshrc.language' ${zsh_config_file}))
-content+=${NEWLINE}'#Set Language'${NEWLINE}
-content+="LANG=${language}"${NEWLINE}
-
-# Set timezone
-timezone=($(yq '.oh_my_zsh.zshrc.timezone' ${zsh_config_file}))
-content+=${NEWLINE}'#Set TimeZone'${NEWLINE}
-content+="export TZ=${timezone}"${NEWLINE}
-
 echo ${content} >> ${zshrc_file}
 mv ${zshrc_file} ${HOME}/.zshrc
