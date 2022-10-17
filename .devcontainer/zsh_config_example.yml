@@ -8,6 +8,8 @@ oh_my_zsh:
       - POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(time)
     plugins:
       - plugin: git
+      - plugin: zsh-completions
+        plugin_install_command: 'git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions'
       - plugin: zsh-autosuggestions
         plugin_install_command: 'git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions'
       - plugin: zsh-syntax-highlighting
