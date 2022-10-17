@@ -4,16 +4,21 @@ We adopt `zsh` as the default shell for the DevContainer, and support `Oh-My-Zsh
 
 ## Configuration
 ### Theme
-* **zsh_theme**
-The name of the theme, `Oh-My-ZSH` has some built-in themes, you can check them out from [here](https://github.com/ohmyzsh/ohmyzsh/wiki/Themes). Or you can also assign some third-party themes you like.
+* **zsh_theme:**
+  
+  The name of the theme, `Oh-My-ZSH` has some built-in themes, you can check them out from [here](https://github.com/ohmyzsh/ohmyzsh/wiki/Themes). Or you can also assign some third-party themes you like.
 * **theme_install_command (optional)**
-You will have to provide it if the theme is not a built-in theme. In `zsh_config_example.yml`, the theme `powerlevel10k` is a third-party theme, so the system will need to install it.
+  
+  You will have to provide it if the theme is not a built-in theme. In `zsh_config_example.yml`, the theme `powerlevel10k` is a third-party theme, so the system will need to install it.
 * **theme_other_commands (optional)**
-You can provide it if the theme supports some further features.
+  
+  You can provide it if the theme supports some further features.
 
 ### Plugins
 * **plugin**
-The name of the plugin. `Oh-My-ZSH` has some built-in plugins, you can check them out from [here](https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins). Or you can also add some third-party plugins you like.
+
+  The name of the plugin. `Oh-My-ZSH` has some built-in plugins, you can check them out from [here](https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins). Or you can also add some third-party plugins you like.
 * **plugin_install_command (optional)**
-You will have to provide it if the plugin is not a built-in plugin. In `zsh_config_example.yml`, the plugin `zsh-autosuggestions` is a third-party plugin, so the system will need to install it.
+
+  You will have to provide it if the plugin is not a built-in plugin. In `zsh_config_example.yml`, the plugin `zsh-autosuggestions` is a third-party plugin, so the system will need to install it.
 
