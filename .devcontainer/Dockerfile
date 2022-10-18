@@ -19,7 +19,6 @@ RUN apt update \
 ARG USERNAME
 ARG USER_UID=1000
 ARG USER_GID=${USER_UID}
-ARG PASSWD
 
 RUN groupadd --gid ${USER_GID} ${USERNAME} \
     && useradd -s /bin/bash --uid ${USER_UID} --gid ${USER_GID} -m ${USERNAME} \
@@ -34,9 +33,9 @@ RUN echo "source ${HOME}/workspace/.devcontainer/profile.sh" >> '/etc/zsh/zprofi
 
 # Install Oh My Zsh
 USER ${USERNAME}
-RUN touch ~/.zshrc
-RUN sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended
 
 COPY ./zsh_initialization.sh ./zsh_config.yml /tmp/
-RUN /tmp/zsh_initialization.sh \
+RUN sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" --unattended \
+    && touch ~/.zshrc \
+    && /tmp/zsh_initialization.sh \
     && sudo rm /tmp/zsh_initialization.sh /tmp/zsh_config.yml
