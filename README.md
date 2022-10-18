@@ -24,6 +24,8 @@ It will automatically clone all the projects we specified from `project_github_u
 #### Get Another Shell in the DevContainer
 You can get another shell in the DevContainer by opening a new terminal then run the `start-devcontainer.sh`
 
+[VS Code DevContainer Extension](#vs-code-devcontainer-extension)
+
 #### Working Directory
 After logging into the DevContainer shell, the working directory will be `~/workspace/projects`, this is the place where we cloned the project.
 ```
@@ -101,3 +103,24 @@ All the database (redis, mongo, postgres) data folders will be mapped in the `db
 ### Gem Packages
 The gem package data will only be stored in the `host` container, since it will lower the running speed of the program in the `host` container if we want to read/write them from the local machine. 
 Therefore, everytime you run the `start-devcontainer.sh` to start the DevContainer and login to the shell, it will execute `bundle install` command to install gem packages automatically.
+
+## VS Code DevContainer Extension
+VS Code has an [extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) for DevContainer allowing developers to connect to the DevContainer and work inside the container directly.
+
+### Adding a definition for the DevContainer
+You will have to provide a definition for the DevContainer in `.devcontainer/devcontainer.json` to let the extension know how to start connecting the DevContainer. Yet you don't have to add this by yourselves since it will be generated automatically once you execute the `script/start-devcontainer.sh`. This definition file will not be tracked in the version control, because it will be a bit different for each developer.
+
+### Connect to the DevContainer
+Once you install the extension, you can click the icon of this extension, and you will see a list of container you have.
+![](https://i.imgur.com/4jW5zd1.png)
+
+The host container is the one we will connect, it will show a folder icon when you move the mouse pointer to it. Click the folder icon to connect to the host container.
+![](https://i.imgur.com/BrNIHYC.png)
+
+If you connect to the DevContainer successfully, you will see your project folders.
+![](https://i.imgur.com/3bzRwnN.png)
+
+> **Note**
+> 
+> The extension now only supports opening one editing window for DevContainer but allows you to open multiple terminals. Therefore, you will have to open multiple terminals and switch to your project folder if you have multiple projects and want to run them up simultaneously.
+
