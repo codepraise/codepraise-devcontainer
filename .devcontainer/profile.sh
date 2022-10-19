@@ -1,8 +1,0 @@
-#!/bin/zsh
-# Customize the environment for development
-
-echo "*** environment load ***"
-
-# Add commands below to customize the environment
-# example: alias la='ls -la'
-alias la='ls -la'
