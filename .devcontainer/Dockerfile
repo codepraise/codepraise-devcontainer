@@ -29,7 +29,7 @@ RUN groupadd --gid ${USER_GID} ${USERNAME} \
 ARG HOME=/home/${USERNAME}
 RUN echo "source ${HOME}/workspace/.devcontainer/profile.sh" >> '/etc/zsh/zprofile' \
     && echo "source ${HOME}/.zshrc" >> '/etc/zsh/zshrc' \
-    && echo "source ${HOME}/workspace/.devcontainer/project_initialization.sh" >> '/etc/zsh/zlogin'
+    && echo "source ${HOME}/workspace/.devcontainer/login_initialization.sh" >> '/etc/zsh/zlogin'
 
 # Install Oh My Zsh
 USER ${USERNAME}
