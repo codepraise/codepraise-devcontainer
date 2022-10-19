@@ -1,7 +1,7 @@
 #!/bin/zsh
 # Initialize the project in DevContainer
 
-echo "*** project initialize ***"
+echo "*** login shell initialize ***"
 
 project_root="${HOME}/workspace"
 
@@ -26,3 +26,6 @@ for url in "${project_github_urls[@]}"; do
     && cd - 1> /dev/null \
     && echo "done."
 done
+
+# set prompt
+export PROMPT="(dev) ${PROMPT}"

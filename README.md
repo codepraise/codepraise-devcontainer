@@ -6,7 +6,7 @@ Clone this repo to your working machine which has already installed docker.
 
 ## Usage
 ### Accessorize the DevContainer Shell
-You can customize the shell environment by adding some commands in `.devcontainer/profile.sh`, like `alias`.
+You can customize your shell environment. Copy `.devcontainer/profile_example.sh` then rename to  `.devcontainer/profile.sh`, this file will not be tracked in version control, so each developer can customize their login shell. For now, you can add some commands in `.devcontainer/profile.sh`, like `alias`.
 
 #### Oh-My-Zsh Decoration
 We adopt `zsh` as the default shell, and support `Oh-My-Zsh`. You will have to copy `.devcontainer/zsh_config_example.yml` and then change the file name to `zsh_config.yml` for the first time you just clone this repo. 
@@ -111,7 +111,7 @@ VS Code has an [extension](https://marketplace.visualstudio.com/items?itemName=m
 You will have to provide a definition for the DevContainer in `.devcontainer/devcontainer.json` to let the extension know how to start connecting the DevContainer. Yet you don't have to add this by yourselves since it will be generated automatically once you execute the `script/start-devcontainer.sh`. This definition file will not be tracked in the version control, because it will be a bit different for each developer.
 
 ### Connect to the DevContainer
-Once you install the extension, you can click the icon of this extension, and you will see a list of container you have.
+Once you install the extension, you can click the green icon on the left buttom corner.
 ![](https://i.imgur.com/4jW5zd1.png)
 
 The host container is the one we will connect, it will show a folder icon when you move the mouse pointer to it. Click the folder icon to connect to the host container.

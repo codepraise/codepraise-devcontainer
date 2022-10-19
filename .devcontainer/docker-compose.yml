@@ -13,6 +13,7 @@ services:
       - SHELL=${SHELL}
       - TZ=${TZ}
       - LANG=${LANG}
+      - HOST=${HOST}
     ports:
       - 9090:9090
       - 9292:9292

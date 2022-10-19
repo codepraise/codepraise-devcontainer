@@ -1,2 +1,3 @@
 .devcontainer/zsh_config.yml
+.devcontainer/profile.sh
 .devcontainer/devcontainer.json

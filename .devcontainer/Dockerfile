@@ -5,6 +5,7 @@ RUN apt update \
     && apt upgrade -y \
     && apt-get install -y sudo \
     && apt-get install -y vim \
+    && apt-get install -y emacs \
     && apt-get install -y zsh \
     && apt-get install -y fonts-powerline \
     && wget https://github.com/mikefarah/yq/releases/download/v4.28.1/yq_linux_amd64.tar.gz -O - |\
@@ -29,7 +30,7 @@ RUN groupadd --gid ${USER_GID} ${USERNAME} \
 ARG HOME=/home/${USERNAME}
 RUN echo "source ${HOME}/workspace/.devcontainer/profile.sh" >> '/etc/zsh/zprofile' \
     && echo "source ${HOME}/.zshrc" >> '/etc/zsh/zshrc' \
-    && echo "source ${HOME}/workspace/.devcontainer/project_initialization.sh" >> '/etc/zsh/zlogin'
+    && echo "source ${HOME}/workspace/.devcontainer/login_initialization.sh" >> '/etc/zsh/zlogin'
 
 # Install Oh My Zsh
 USER ${USERNAME}
