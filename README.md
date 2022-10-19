@@ -6,7 +6,7 @@ Clone this repo to your working machine which has already installed docker.
 
 ## Usage
 ### Accessorize the DevContainer Shell
-You can customize your shell environment. Copy `.devcontainer/profile_example.sh` then rename to  `.devcontainer/profile.sh`. For now, you can add some commands in `.devcontainer/profile.sh`, like `alias`.
+You can customize your shell environment. Copy `.devcontainer/profile_example.sh` then rename to  `.devcontainer/profile.sh`, this file will not be tracked in version control, so each developer can customize their login shell. For now, you can add some commands in `.devcontainer/profile.sh`, like `alias`.
 
 #### Oh-My-Zsh Decoration
 We adopt `zsh` as the default shell, and support `Oh-My-Zsh`. You will have to copy `.devcontainer/zsh_config_example.yml` and then change the file name to `zsh_config.yml` for the first time you just clone this repo. 
