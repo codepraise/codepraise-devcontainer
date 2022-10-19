@@ -5,6 +5,7 @@ RUN apt update \
     && apt upgrade -y \
     && apt-get install -y sudo \
     && apt-get install -y vim \
+    && apt-get install -y emacs \
     && apt-get install -y zsh \
     && apt-get install -y fonts-powerline \
     && wget https://github.com/mikefarah/yq/releases/download/v4.28.1/yq_linux_amd64.tar.gz -O - |\
