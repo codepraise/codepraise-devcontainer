@@ -1,3 +1,6 @@
 .devcontainer/zsh_config.yml
 .devcontainer/profile.sh
 .devcontainer/devcontainer.json
+script/start-devcontainer-api.sh
+script/start-devcontainer-app.sh
+script/start-devcontainer-worker.sh
