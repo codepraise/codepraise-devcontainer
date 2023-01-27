@@ -7,9 +7,11 @@ RUN apt update \
     && apt-get install -y vim \
     && apt-get install -y emacs \
     && apt-get install -y zsh \
+    && apt-get install -y nodejs \
     && apt-get install -y fonts-powerline \
     && wget https://github.com/mikefarah/yq/releases/download/v4.28.1/yq_linux_amd64.tar.gz -O - |\
        tar xz && mv yq_linux_amd64 /usr/bin/yq \
+    && curl https://cli-assets.heroku.com/install.sh | sh \
     #
     # Clean up
     && apt-get autoremove -y \
