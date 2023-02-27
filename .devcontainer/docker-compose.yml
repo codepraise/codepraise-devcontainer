@@ -36,6 +36,7 @@ services:
       - ../db-data/redis:/data:delegated
     ports:
       - 6379:6379
+    restart: always
 
   mongo-db:
     image: mongo
@@ -44,6 +45,7 @@ services:
       - ../db-data/mongo:/data/db:delegated
     ports:
       - 27017:27017
+    restart: always
 
   postgres-db:
     image: postgres
@@ -55,3 +57,4 @@ services:
       - 5432:5432
     environment:
       - POSTGRES_PASSWORD=postgres_passwd
+    restart: always
