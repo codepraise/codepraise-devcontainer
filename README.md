@@ -120,6 +120,11 @@ The host container is the one we will connect, it will show a folder icon when y
 If you connect to the DevContainer successfully, you will see your project folders.
 ![](https://i.imgur.com/3bzRwnN.png)
 
+### Set up AWS SQS Service for worker in Codepraise-api.
+
+When we attempt to run CodePraise, we need to replace certain tokens in the secret.yml file. One of the most critical setups is the SQS service, as it directly affects the usage of workers.
+
+
 > **Note**
 > 
 > The extension now only supports opening one editing window for DevContainer but allows you to open multiple terminals. Therefore, you will have to open multiple terminals and switch to your project folder if you have multiple projects and want to run them up simultaneously.
