@@ -124,6 +124,26 @@ If you connect to the DevContainer successfully, you will see your project folde
 
 When we attempt to run CodePraise, we need to replace certain tokens in the secret.yml file. One of the most critical setups is the SQS service, as it directly affects the usage of workers.
 
+1. Login [AWS](https://signin.aws.amazon.com/signin?redirect_uri=https%3A%2F%2Fconsole.aws.amazon.com%2Fconsole%2Fhome%3FhashArgs%3D%2523%26isauthcode%3Dtrue%26state%3DhashArgsFromTB_ap-southeast-2_f0f961ef2b42dff4&client_id=arn%3Aaws%3Asignin%3A%3A%3Aconsole%2Fcanvas&forceMobileApp=0&code_challenge=koB4iW2c_PuWNp6eO1klqErpW-HGUIYN8kAnMIMF4sA&code_challenge_method=SHA-256) and choose "IAM user", if you don't have an account, create a new one.
+![](https://i.imgur.com/kKvsWMh.jpg)
+
+2. Search for 'SQS Service' using the search box at the top. Once you arrive on the same page as shown below, select 'us-east-1' as the server location on top-right. Finally, click 'Create queue' to create a new queue for the worker.
+![](https://i.imgur.com/LvMfkwX.jpg)
+
+3. You don't need to configure anything except for the name of the queue. Simply click 'Create queue' to complete the creation process.
+![](https://i.imgur.com/afPLXQd.jpg) 
+
+4. Now you have to give yourself the permission to use the queue you just created. Search for 'IAM' using the search box at the top. Choose the "Users" on the Dashboard on the left side, and click the "Create user" bottom to create a new user.
+![](https://i.imgur.com/elawt5s.jpg) 
+
+5. After giving the user name in the first step, you need to set-up something as the screenshot below: choose "Attach policies directly" and add "AmazonSQSFullAccess" to the Permissions policies.
+![](https://i.imgur.com/AERBByB.jpg) 
+
+6. We're almost there! After completing all the steps above, you should have obtained "AWS_ACCESS_KEY_ID" and "AWS_SECRET_ACCESS_KEY" from the IAM page, and the "AWS_REGION" should be set to 'us-east-1' (you can change it as needed). 'CLONE_QUEUE' is the name of the queue you set during step 3, and the same goes for 'CLONE_QUEUE_URL'.
+
+Enjoy using CodePraise!
+
+
 
 > **Note**
 > 
