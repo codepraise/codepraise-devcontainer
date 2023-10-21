@@ -112,32 +112,32 @@ You will have to provide a definition for the DevContainer in `.devcontainer/dev
 
 ### Connect to the DevContainer
 Once you install the extension, you can click the icon of this extension, and you will see a list of container you have.
-![](image/codepraise-devcontainer-foldericon.png)
+![](image/vscode-extention.png)
 
 The host container is the one we will connect, it will show a folder icon when you move the mouse pointer to it. Click the folder icon to connect to the host container.
-![](image/codepraise-devcontainer-hostcontainer.png)
+![](image/vscode-connectcontainer.png)
 
 If you connect to the DevContainer successfully, you will see your project folders.
-![](image/codepraise-devcontainer-showprojects.png)
+![](image/vscode-showprojects.png)
 
 ### Set up AWS SQS Service for worker in Codepraise-api.
 
 When we attempt to run CodePraise, we need to replace certain tokens in the secret.yml file. One of the most critical setups is the SQS service, as it directly affects the usage of workers.
 
 1. Login [AWS](https://signin.aws.amazon.com/signin?redirect_uri=https%3A%2F%2Fconsole.aws.amazon.com%2Fconsole%2Fhome%3FhashArgs%3D%2523%26isauthcode%3Dtrue%26state%3DhashArgsFromTB_ap-southeast-2_f0f961ef2b42dff4&client_id=arn%3Aaws%3Asignin%3A%3A%3Aconsole%2Fcanvas&forceMobileApp=0&code_challenge=koB4iW2c_PuWNp6eO1klqErpW-HGUIYN8kAnMIMF4sA&code_challenge_method=SHA-256) and choose "IAM user", if you don't have an account, create a new one.
-![](image/codepraise-devcontainer-signinAWS.jpeg)
+![](image/aws-iam-signin.jpeg)
 
 2. Search for 'SQS Service' using the search box at the top. Once you arrive on the same page as shown below, select 'us-east-1' as the server location on top-right. Finally, click 'Create queue' to create a new queue for the worker.
-![](image/codepraise-devcontainer-SearchSQSandCreateQueue.jpeg)
+![](image/aws-sqs-createqueue.jpeg)
 
 3. You don't need to configure anything except for the name of the queue. Simply click 'Create queue' to complete the creation process.
-![](image/codepraise-devcontainer-NamingQueue.jpeg) 
+![](image/aws-sqs-namequeue.jpeg) 
 
 4. Now you have to give yourself the permission to use the queue you just created. Search for 'IAM' using the search box at the top. Choose the "Users" on the Dashboard on the left side, and click the "Create user" bottom to create a new user.
-![](image/codepraise-devcontainer-SetPermission.jpeg) 
+![](image/aws-iam-setpermission.jpeg) 
 
 5. After giving the user name in the first step, you need to set-up something as the screenshot below: choose "Attach policies directly" and add "AmazonSQSFullAccess" to the Permissions policies.
-![](image/codepraise-devcontainer-AddFullAccess.jpeg) 
+![](image/aws-sqs-addaccess.jpeg) 
 
 6. We're almost there! After completing all the steps above, you should have obtained "AWS_ACCESS_KEY_ID" and "AWS_SECRET_ACCESS_KEY" from the IAM page, and the "AWS_REGION" should be set to 'us-east-1' (you can change it as needed). 'CLONE_QUEUE' is the name of the queue you set during step 3, and the same goes for 'CLONE_QUEUE_URL'.
 
