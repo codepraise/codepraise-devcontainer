@@ -112,7 +112,7 @@ You will have to provide a definition for the DevContainer in `.devcontainer/dev
 
 ### Connect to the DevContainer
 Once you install the extension, you can click the icon of this extension, and you will see a list of container you have.
-![](https://i.imgur.com/4jW5zd1.png)
+![](image/codepraise-devcontainer-foldericon.png)
 
 The host container is the one we will connect, it will show a folder icon when you move the mouse pointer to it. Click the folder icon to connect to the host container.
 ![](https://i.imgur.com/BrNIHYC.png)
